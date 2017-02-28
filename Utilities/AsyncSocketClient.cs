@@ -235,8 +235,9 @@ namespace Utilities
                     }
 
                     
-                    if (sample.Contains(82))//real time data
+                    if (sample.Contains(82) || sample.Contains(83))//real time data
                     {// realtime     start R(82) length 66
+                        // or S (83)
                         msg = "ReceiveCallback bytes[0] = " + sample[0].ToString() + " bytes[end] = " + sample[sample.Count - 1].ToString() + " length : " + sample.Count +" data: " + Utilities.ListsAndCollections.ConvertByteArrayToString(sample);
                         lwq.WriteLog(msg, "AsyncSocketClient.ReceiveCallback", threadname, Logging.LogLevel.Debug);
                         byte searchval = 82;
